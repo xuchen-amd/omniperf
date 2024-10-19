@@ -79,6 +79,19 @@ directory to begin.
    $ sudo docker-compose build
    $ sudo docker-compose up -d
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+.. note::
+
+   To troubleshoot Docker container build failures related to certificate verification, try 
+   disabling any network proxy services on the host system. These proxy services can interfere 
+   with OpenSSL's ability to retrieve a correct certificate chain when the container accesses 
+   external websites.
+
+=======
+>>>>>>> 0e7085ccccbe27f9a804e1f5c9237026213d9da2
+>>>>>>> ad6f025f6ad34911d9d6eb9e685bacc9278c75f6
 The TCP ports for Grafana (``4000``) and MongoDB (``27017``) in the Docker
 container are mapped to ``14000`` and ``27018``, respectively, on the host side.
 
