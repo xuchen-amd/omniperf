@@ -134,6 +134,8 @@ class Omniperf:
                 self.__profiler_mode = "rocprofv1"
             elif str(rocprof_cmd).endswith("rocprofv2"):
                 self.__profiler_mode = "rocprofv2"
+            elif str(rocprof_cmd).endswith("rocprofv3"):
+                self.__profiler_mode = "rocprofv3"
             else:
                 console_error(
                     "Incompatible profiler: %s. Supported profilers include: %s"
@@ -211,6 +213,12 @@ class Omniperf:
             )
         elif self.__profiler_mode == "rocprofv2":
             from omniperf_profile.profiler_rocprof_v2 import rocprof_v2_profiler
+
+            profiler = rocprof_v2_profiler(
+                self.__args, self.__profiler_mode, self.__soc[self.__mspec.gpu_arch]
+            )
+        elif self.__profiler_mode == "rocprofv3":
+            from omniperf_profile.profiler_rocprof_v3 import rocprof_v3_profiler
 
             profiler = rocprof_v2_profiler(
                 self.__args, self.__profiler_mode, self.__soc[self.__mspec.gpu_arch]
